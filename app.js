@@ -23,6 +23,7 @@ boxes.forEach((box)=>{
     box.addEventListener('click',()=>{
         if(turnO){
             box.innerText='O';
+            box.style.color = '#cad2c5';
             turnO=false;
         }
         else{
@@ -35,14 +36,16 @@ boxes.forEach((box)=>{
         let isWinner=checkWin();
         
         if(count===9 && !isWinner){
-        //    gameDraw()
-           winMsg.innerText="Game was a Draw."
+            gameDraw()
+          
         }
     });
 });
-// const gameDraw=()=>{
-   
-// }
+const gameDraw = () => {
+    winMsg.innerText = `Game was a Draw.`;
+    result.classList.remove("hide");
+    disableBox();
+  };
 const checkWin=()=>{
     for(let pattern of winPattern ){
         let pos1val=boxes[pattern[0]].innerText;
@@ -51,6 +54,7 @@ const checkWin=()=>{
         if(pos1val!="" && pos2val !="" && pos3val !=""){
             if(pos1val===pos2val && pos2val===pos3val){
                 showWinner(pos1val)
+                return true;
             }
         }
         
