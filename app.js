@@ -80,5 +80,6 @@ function resetGame(){
         box.disabled=false;
     })
     turnO=true;
+    count=0;
     result.classList.add("hide");
 }
