@@ -27,6 +27,7 @@ boxes.forEach((box)=>{
         }
         else{
             box.innerText='X';
+            box.style.color = '#84A98C';
             turnO=true;
         }
         box.disabled=true;
@@ -34,13 +35,14 @@ boxes.forEach((box)=>{
         let isWinner=checkWin();
         
         if(count===9 && !isWinner){
-           gameDraw()
+        //    gameDraw()
+           winMsg.innerText="Game was a Draw."
         }
     });
 });
-const gameDraw=()=>{
-    winMsg.innerText="Game was a Draw."
-}
+// const gameDraw=()=>{
+   
+// }
 const checkWin=()=>{
     for(let pattern of winPattern ){
         let pos1val=boxes[pattern[0]].innerText;
